@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meri Gita</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url(../static/photos/bg.png);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #4a4a4a;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a4a4a;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b6b;
+        }
+
+        .hero {
+            background-image: url("../static/photos/image.png");
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ff6b6b;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #ff5252;
+        }
+
+        .features {
+            padding: 80px 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item i {
+            font-size: 48px;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+
+        .about-me, .contact-me {
+            padding: 80px 0;
+        }
+
+        .about-me h2, .contact-me h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .about-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .contact-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-card p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .contact-card a {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: #ff5252;
+        }
+
+        .blog-preview {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .blog-preview h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #e0e0e0;
+        }
+
+        .blog-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ff6b6b;
+        }
+
+        .blog-card .date {
+            font-size: 14px;
+            color: #b0b0b0;
+            margin-bottom: 15px;
+        }
+
+        .blog-card .excerpt {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #b0b0b0;
+        }
+
+        .read-more {
+            display: inline-block;
+            background-color: #ff6b6b;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .read-more:hover {
+            background-color: #ff5252;
+        }
+
+
+    </style>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav class="container">
+        <div class="logo">Meri Gita</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Gita Bit By Bit Everyday</h1>
+        <p>I have embarked on a challenge of posting one blog each day about one shloka of gita and my understanding to it.</p>
+        <a class="cta-button">Journey Till Now - 00/700 </a>
+    </div>
+</section>
+
+<section class="blog-preview" id="blog">
+    <div class="container">
+        <h2 style="color: #333;">Latest Blog Post</h2>
+        <div class="blog-card" style="background-color: white;">
+            <h3>The Journey Begins! Bhagavad Gita: Chapter 1, Verse 1</h3>
+            <p class="date">Posted on August 27, 2024</p>
+            <p class="excerpt">Dhritarashtra said: O Sanjaya, after my sons and the sons of Pandu assembled in the place
+                of pilgrimage at Kurukshetra, desiring to fight, what did they do?</p>
+            <a href="/verse/1" class="read-more">Read More</a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="about-me" id="about">
+    <div class="container">
+        <h2>About Me</h2>
+        <div class="about-card">
+            <p>Hare Krishna! I'm Rhythm</p>
+            <p>I'm 17 Years Old, And I was taking on a challenge to read and understand the gita but i could not take
+                time out</p>
+            <p>So I started this blog as it motivates me to conquer on the challenge to read and understand Gita</p>
+            <p>I am starting this challenge on 27 August 2024 Tuesday (One Day after 2024 Janmashtami)</p>
+            <p>The challenge will come to an end on Tuesday, 28 July 2026</p>
+        </div>
+    </div>
+</section>
+
+
+<section class="contact-me" id="contact">
+    <div class="container">
+        <h2>Contact Me</h2>
+        <div class="contact-card">
+            <p>Have questions or want to connect? Feel free to reach out to me at:</p>
+            <a href="mailto:rybitic@gmail.com">rybitic@gmail.com</a>
+        </div>
+    </div>
+</section>
+</body>
+</html>
